@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/home/formulated/projects/algovis/algovis.csproj": {}
+    "/mnt/vmdrive/projects/algovis/algovis.csproj": {}
   },
   "projects": {
-    "/home/formulated/projects/algovis/algovis.csproj": {
+    "/mnt/vmdrive/projects/algovis/algovis.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/formulated/projects/algovis/algovis.csproj",
+        "projectUniqueName": "/mnt/vmdrive/projects/algovis/algovis.csproj",
         "projectName": "algovis",
-        "projectPath": "/home/formulated/projects/algovis/algovis.csproj",
+        "projectPath": "/mnt/vmdrive/projects/algovis/algovis.csproj",
         "packagesPath": "/home/formulated/.nuget/packages/",
-        "outputPath": "/home/formulated/projects/algovis/obj/",
+        "outputPath": "/mnt/vmdrive/projects/algovis/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/home/formulated/.nuget/NuGet/NuGet.Config"

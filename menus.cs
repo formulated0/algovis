@@ -1,12 +1,7 @@
 ﻿using ColoredConsole;
 
-class Program
+class Menus
 {
-	public static void Main(string[] args)
-	{
-		MainMenu();
-	}
-
 	public static void MainMenu()
 	{
 		Console.WriteLine("=============================");
@@ -71,7 +66,7 @@ class Program
 		switch (choice)
 		{
 			case 1:
-				SortMenu();
+				Sorting.BubbleSort();
 				break;
 			case 2:
 				break;
@@ -84,7 +79,6 @@ class Program
 				SortMenu();
 				return;
 		}
-
 	}
 
 	public static void PathMenu()
