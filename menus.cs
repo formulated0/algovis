@@ -1,4 +1,6 @@
-﻿using ColoredConsole;
+﻿using System.Security.Cryptography.X509Certificates;
+using ColoredConsole;
+using static Sorting;
 
 class Menus
 {
@@ -53,7 +55,7 @@ class Menus
 		ColorConsole.WriteLine("4. ".Red(), "merge sort");
 		ColorConsole.WriteLine("5. ".Red(), "quick sort");
 		Console.WriteLine("6. back");
-		Console.WriteLine("-----------------------------\nselect an algorithm: ");
+		Console.Write("-----------------------------\nselect an algorithm: ");
 
 		var input = Console.ReadLine();
 		if (!int.TryParse(input, out int choice) || choice < 1 || choice > 6)
@@ -66,7 +68,7 @@ class Menus
 		switch (choice)
 		{
 			case 1:
-				Sorting.BubbleSort();
+				SortMenus.BubblesortMenu();
 				break;
 			case 2:
 				break;
@@ -89,5 +91,83 @@ class Menus
 	public static void DataMenu()
 	{
 		ColorConsole.WriteLine("\ndatamenu".Yellow());
+	}
+}
+
+class ArrayMenus
+{
+	public static (int[] arr, int size)? ArrayMenu()
+	{
+		Console.Write($"enter array size (10-50): ");
+		var input = Console.ReadLine();
+		if (!int.TryParse(input, out int arraySize) || arraySize < 10 || arraySize > 50)
+		{
+			ColorConsole.WriteLine("enter an integer between 10 and 50".Red());
+			return ArrayMenu();
+		}
+
+		Console.WriteLine("data type:");
+		ColorConsole.WriteLine("1. ".Red(), "random numbers");
+		ColorConsole.WriteLine("2. ".Red(), "reverse sorted");
+		ColorConsole.WriteLine("3. ".Red(), "almost sorted");
+		ColorConsole.WriteLine("4. ".Red(), "custom input");
+		Console.WriteLine("5. back");
+		Console.WriteLine("-----------------------------\nselect an option: ");
+
+		var input1 = Console.ReadLine();
+		if (!int.TryParse(input1, out int arrayMenuSelection) || arrayMenuSelection < 1 || arrayMenuSelection > 5)
+		{
+			ColorConsole.WriteLine("invalid choice buddy try again".Red());
+			return ArrayMenu();
+		}
+
+		switch (arrayMenuSelection)
+		{
+			case 1:
+				return GenerateRandArray(arraySize);
+			case 2:
+				break;
+			case 3:
+				break;
+			case 4:
+				break;
+			case 5:
+				Menus.SortMenu();
+				return null;
+			default:
+				ColorConsole.WriteLine("\ninvalid choice buddy try again".Red());
+				return ArrayMenu();
+		}
+		return null;
+	}
+
+	public static (int[] arr, int size) GenerateRandArray(int arraySize)
+	{
+		Random rand = new();
+
+		int[] randArray = new int[arraySize];
+
+		for (int i = 0; i < arraySize; i++)
+		{
+			randArray[i] = rand.Next(1, 101);
+		}
+
+		Console.WriteLine($"your array: [{string.Join(", ", randArray)}]");
+		Console.WriteLine("press enter to continue");
+		Console.ReadLine();
+		return (randArray, arraySize);
+	}
+}
+
+class SortMenus
+{
+	public static void BubblesortMenu()
+	{
+		ColorConsole.WriteLine("bubblesort");
+		var result = ArrayMenus.ArrayMenu();
+		if (result.HasValue)
+		{
+			BubbleSort(result.Value.arr, result.Value.size);
+		}
 	}
 }

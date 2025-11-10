@@ -18,11 +18,42 @@ class Sorting
 		}
 		method();
 	}
-	public static void BubbleSort()
+
+	// where n is the arrayLength
+	public static void BubbleSort(int[] arr, int n)
 	{
-		ColorConsole.WriteLine("bubblesort");
-		Quit(SortMenu);
+		int i, j, temp;
+		bool swapped;
+		for (i = 0; i < n - 1; i++)
+		{
+			swapped = false;
+			for (j = 0; j < n - i - 1; j++)
+			{
+				// if the jth element is larger than the next element
+				if (arr[j] > arr[j + 1])
+				{
+					// then swap them
+					temp = arr[j];
+					arr[j] = arr[j + 1];
+					arr[j + 1] = temp;
+					swapped = true;
+				}
+			}
+
+			// if no two elements were swapped by inner loop then break
+			if (swapped == false)
+				break;
 		}
+
+		static void printArray(int[] arr)
+		{
+			Console.WriteLine($"your array: [{string.Join(", ", arr)}]");
+		}
+
+		printArray(arr);
+		Console.WriteLine($"press q to go back");
+		Quit(SortMenu);
+	}
 
 	public static void InsertionSort()
 	{
