@@ -48,10 +48,7 @@ class Sorting
 					swapped = true;
 				}
 			}
-
-			// for (int k = 0; k < arr.Length + 3; k++)
-			// 	Console.WriteLine();
-
+			
 			if (!swapped)
 				break;
 		}
