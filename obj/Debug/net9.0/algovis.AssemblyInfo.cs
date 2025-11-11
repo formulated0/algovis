@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("algovis")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+fc32c8e582088faa734199a53094e8bdb4720cf6")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+efc84e827e4cac70cb24b904e803e46ccc600056")]
 [assembly: System.Reflection.AssemblyProductAttribute("algovis")]
 [assembly: System.Reflection.AssemblyTitleAttribute("algovis")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

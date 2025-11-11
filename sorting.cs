@@ -32,6 +32,7 @@ class Sorting
 				// if the jth element is larger than the next element
 				if (arr[j] > arr[j + 1])
 				{
+					Console.WriteLine($"swapping {arr[j]} and {arr[j + 1]}");
 					// then swap them
 					temp = arr[j];
 					arr[j] = arr[j + 1];
@@ -47,7 +48,7 @@ class Sorting
 
 		static void printArray(int[] arr)
 		{
-			Console.WriteLine($"your array: [{string.Join(", ", arr)}]");
+			Console.WriteLine($"sorted array: [{string.Join(", ", arr)}]");
 		}
 
 		printArray(arr);

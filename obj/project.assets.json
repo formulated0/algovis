@@ -4616,19 +4616,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\formulated\\.nuget\\packages\\": {}
+    "C:\\Users\\Jakub\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\formulated\\projects\\algovis\\algovis.csproj",
+      "projectUniqueName": "C:\\Users\\Jakub\\algovis\\algovis.csproj",
       "projectName": "algovis",
-      "projectPath": "C:\\Users\\formulated\\projects\\algovis\\algovis.csproj",
-      "packagesPath": "C:\\Users\\formulated\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\formulated\\projects\\algovis\\obj\\",
+      "projectPath": "C:\\Users\\Jakub\\algovis\\algovis.csproj",
+      "packagesPath": "C:\\Users\\Jakub\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Jakub\\algovis\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\formulated\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "C:\\Users\\Jakub\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net9.0"

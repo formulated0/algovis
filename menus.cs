@@ -1,6 +1,7 @@
 ﻿using System.Security.Cryptography.X509Certificates;
 using ColoredConsole;
 using static Sorting;
+using System.Text;
 
 class Menus
 {
@@ -71,10 +72,16 @@ class Menus
 				SortMenus.BubblesortMenu();
 				break;
 			case 2:
+				// TODO INSERTION SORT
 				break;
 			case 3:
+				// TODO SELECTIONSORT
 				break;
 			case 4:
+				// TODO MERGESORT
+				break;
+			case 5:
+				// TODO QUICKSORT
 				break;
 			default:
 				ColorConsole.WriteLine("\ninvalid choice buddy try again".Red());
