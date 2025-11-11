@@ -34,6 +34,9 @@ class Sorting
 			passes++;
 			for (j = 0; j < n - i - 1; j++)
 			{
+				// visualise the array here so that we get the sickass red moving up per pass not per swap
+				DrawArray(arr, j, j + 1);
+
 				comparisons++;
 				if (arr[j] > arr[j + 1])
 				{
@@ -45,10 +48,17 @@ class Sorting
 					swapped = true;
 				}
 			}
-			DrawArray(arr, j, j + 1);
+
+			// for (int k = 0; k < arr.Length + 3; k++)
+			// 	Console.WriteLine();
+
 			if (!swapped)
 				break;
 		}
+
+		// have to draw another one to get rid of the red
+		DrawArray(arr, -1, -1, 0);
+
 		stopwatch.Stop();
 
 		TimeSpan ts = stopwatch.Elapsed;
@@ -88,9 +98,9 @@ class Sorting
 		return;
 	}
 
-	public static void DrawArray(int[] arr, int highlightA = -1, int highlightB = -1, int delay = 50)
+	public static void DrawArray(int[] arr, int highlightA = -1, int highlightB = -1, int delay = 50, ConsoleColor color = ConsoleColor.Red)
 	{
-		Console.Clear();
+		Console.SetCursorPosition(0, 0);
 
 		int max = arr.Max();
 		int width = 50;
@@ -101,23 +111,19 @@ class Sorting
 
 		for (int i = 0; i < arr.Length; i++)
 		{
-			Console.Clear();
 			int barLength = (int)(arr[i] / (double)max * width);
 
 			if (i == highlightA || i == highlightB)
-			{
-				Console.ForegroundColor = ConsoleColor.Red;
-			}
+				Console.ForegroundColor = color;
 			else
-			{
 				Console.ForegroundColor = ConsoleColor.Gray;
-			}
 
-			Console.WriteLine($"{arr[i],3} | {new string('█', barLength)}");
+			Console.Write($"{arr[i],3} | {new string('█', barLength)}");
+			Console.Write(new string(' ', Console.WindowWidth - barLength - 6));
+			Console.WriteLine();
 		}
 
 		Console.ResetColor();
 		Thread.Sleep(delay);
 	}
-
 }
