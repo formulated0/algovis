@@ -105,11 +105,11 @@ class ArrayMenus
 {
 	public static (int[] arr, int size)? ArrayMenu()
 	{
-		Console.Write($"enter array size (10-50): ");
+		Console.Write($"enter array size (10-100): ");
 		var input = Console.ReadLine();
-		if (!int.TryParse(input, out int arraySize) || arraySize < 10 || arraySize > 50)
+		if (!int.TryParse(input, out int arraySize) || arraySize < 10 || arraySize > 100)
 		{
-			ColorConsole.WriteLine("enter an integer between 10 and 50".Red());
+			ColorConsole.WriteLine("enter an integer between 10 and 100".Red());
 			return ArrayMenu();
 		}
 

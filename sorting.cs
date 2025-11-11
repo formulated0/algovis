@@ -24,34 +24,46 @@ class Sorting
 	{
 		int i, j, temp;
 		bool swapped;
+		int passes = 0;
+		int swaps = 0;
+		int comparisons = 0;
+		var stopwatch = System.Diagnostics.Stopwatch.StartNew();
 		for (i = 0; i < n - 1; i++)
 		{
 			swapped = false;
+			passes++;
 			for (j = 0; j < n - i - 1; j++)
 			{
-				// if the jth element is larger than the next element
+				comparisons++;
 				if (arr[j] > arr[j + 1])
 				{
-					Console.WriteLine($"swapping {arr[j]} and {arr[j + 1]}");
-					// then swap them
+					// swap
 					temp = arr[j];
 					arr[j] = arr[j + 1];
 					arr[j + 1] = temp;
+					swaps++;
 					swapped = true;
 				}
 			}
-
-			// if no two elements were swapped by inner loop then break
-			if (swapped == false)
+			DrawArray(arr, j, j + 1);
+			if (!swapped)
 				break;
 		}
+		stopwatch.Stop();
 
-		static void printArray(int[] arr)
-		{
-			Console.WriteLine($"sorted array: [{string.Join(", ", arr)}]");
-		}
+		TimeSpan ts = stopwatch.Elapsed;
+		string elapsedTime = string.Format("{0:00}.{1:00}", ts.Microseconds, ts.Nanoseconds);
 
-		printArray(arr);
+		Console.WriteLine("-----------------------------");
+		Console.WriteLine("sorting complete!");
+		Console.WriteLine("algorithm: bubble sort");
+		Console.WriteLine($"passes: {passes}");
+		Console.WriteLine($"swaps: {swaps}");
+		Console.WriteLine($"comparisons: {comparisons}");
+		Console.WriteLine($"real time taken: {elapsedTime + " microseconds"}");
+		Console.WriteLine("-----------------------------");
+		Console.WriteLine("sorted array:");
+		Console.WriteLine($"[{string.Join(", ", arr)}]");
 		Console.WriteLine($"press q to go back");
 		Quit(SortMenu);
 	}
@@ -74,6 +86,38 @@ class Sorting
 	public static void QuickSort()
 	{
 		return;
+	}
+
+	public static void DrawArray(int[] arr, int highlightA = -1, int highlightB = -1, int delay = 50)
+	{
+		Console.Clear();
+
+		int max = arr.Max();
+		int width = 50;
+
+		Console.WriteLine("-----------------------------");
+		Console.WriteLine("sorting visualisation:");
+		Console.WriteLine("-----------------------------");
+
+		for (int i = 0; i < arr.Length; i++)
+		{
+			Console.Clear();
+			int barLength = (int)(arr[i] / (double)max * width);
+
+			if (i == highlightA || i == highlightB)
+			{
+				Console.ForegroundColor = ConsoleColor.Red;
+			}
+			else
+			{
+				Console.ForegroundColor = ConsoleColor.Gray;
+			}
+
+			Console.WriteLine($"{arr[i],3} | {new string('█', barLength)}");
+		}
+
+		Console.ResetColor();
+		Thread.Sleep(delay);
 	}
 
 }
