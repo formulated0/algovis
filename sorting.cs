@@ -52,11 +52,9 @@ class Sorting
 			if (!swapped)
 				break;
 		}
-
+		stopwatch.Stop();
 		// have to draw another one to get rid of the red
 		DrawArray(arr, -1, -1, 0);
-
-		stopwatch.Stop();
 
 		TimeSpan ts = stopwatch.Elapsed;
 		string elapsedTime = string.Format("{0:00}.{1:00}", ts.Microseconds, ts.Nanoseconds);
